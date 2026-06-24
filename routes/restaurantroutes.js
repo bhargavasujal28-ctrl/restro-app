@@ -3,8 +3,9 @@ const {
   createrestaurantcontroller,
   getallrestaurants,
   getrestaurantbyidcontroller,
-  deleteRestaurantController,
+  deleteRestaurantcontroller,
 } = require("../controllers/restaurantcontrollers");
+const authmiddleware = require("../middlewares/authmiddleware");
 
 const router = express.Router();
 
@@ -18,7 +19,7 @@ router.get("/getall", getallrestaurants);
 router.get("/get/:title", getrestaurantbyidcontroller);
 
 // DELETE RESTaURANT || DELETE
-router.delete("/delete/:id", authMiddleware, deleteRestaurantController);
+router.delete("/delete/:id", authmiddleware, deleteRestaurantcontroller);
 
 //export
 module.exports = router;
